@@ -1,7 +1,7 @@
 legislationedits
 ================
 
-This program tweets out edits to proposed legislation going through the U.S. Congress. Here are the instructions to get you started.
+This program tweets out edits to proposed legislation going through the U.S. Congress. Here are some instructions to get you started.
 
 To use  this Twitter bot:
 
