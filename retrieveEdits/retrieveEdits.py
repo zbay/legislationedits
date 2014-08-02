@@ -3,7 +3,6 @@
 
 import urllib2
 import json
-import datetime
 import time
 from twython import Twython
 from creds import *
