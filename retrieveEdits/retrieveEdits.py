@@ -1,4 +1,3 @@
-#import more efficiently
 #break into several files
 
 import urllib2
