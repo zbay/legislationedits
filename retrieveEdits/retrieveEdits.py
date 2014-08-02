@@ -5,6 +5,11 @@ import urllib2
 import json
 import datetime
 import time
+from twython import Twython
+from creds import *
+
+twitter = Twython(APP_KEY, APP_SECRET,
+                  FINAL_OAUTH_TOKEN, FINAL_OAUTH_TOKEN_SECRET)
 
 st = time.time()
 startTime = st - 600.0
@@ -71,4 +76,5 @@ for line in outputFile:
   if revisionTime > startTime:
    output = "Article \"" + line + "\" edited by " + user
    line = line.replace (" ", "_")
-   print output[:116] + "... en.wikipedia.org/wiki/" + line
+   edit = output[:116] + " en.wikipedia.org/wiki/" + line
+   twitter.update_status(status=edit)

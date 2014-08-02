@@ -436,5 +436,5 @@ See the <a href='https://www.mediawiki.org/wiki/API'>complete documentation</a>,
 </body>
 </html>
 <script>if(window.mw){
-mw.config.set({"wgBackendResponseTime":154,"wgHostname":"mw1195"});
+mw.config.set({"wgBackendResponseTime":127,"wgHostname":"mw1207"});
 }</script>
