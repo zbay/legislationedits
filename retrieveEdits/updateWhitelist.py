@@ -36,4 +36,3 @@ for line in intermediateFile:
          line2 = line2.replace("&quot;", "\"")
          outputFile.write(line2 + "\n")
 outputFile.close()
-outputFile = open("whitelist.txt", 'r')
