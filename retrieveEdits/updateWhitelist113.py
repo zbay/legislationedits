@@ -5,7 +5,10 @@ intermediateFile.truncate()
 outputFile = open("whitelist113.txt", 'w')
 outputFile.truncate()
 
-inputFile = urllib2.urlopen('http://en.wikipedia.org/wiki/List_of_bills_in_the_113th_United_States_Congress')
+#CHANGE THIS LINE FOR FUTURE SESSIONS OF CONGRESS
+billPage = 'http://en.wikipedia.org/wiki/List_of_bills_in_the_113th_United_States_Congress'
+
+inputFile = urllib2.urlopen(billPage)
 
 intermediateFile.writelines(inputFile.read())
 
