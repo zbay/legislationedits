@@ -26,7 +26,7 @@ for line in intermediateFile:
    isAct = False
 
     #how to filter out the good Wikipedia links from the bad
-   if wikiPage.find("Act_") > -1  or wikiPage.find("_act") > -1 or wikiPage.find("act_") > -1 or wikiPage.find("_Act") > -1 or wikiPage.find("bill") > -1 or wikiPage.find("Bill_to") > -1 or wikiPage.find("bill_to") > -1 or wikiPage.find("Amendments") > -1 or wikiPage.find("Resolution") > -1 or wikiPage.find("Authorization") > -1 or wikiPage.find("To_") == 0 or wikiPage.find("Public_Law") > -1 or wikiPage.find("United_States_federal_budget") > -1 :
+   if wikiPage.find("Act_") > -1  or wikiPage.find("_act") > -1 or wikiPage.find("act_") > -1 or wikiPage.find("_Act") > -1 or wikiPage.find("bill") > -1 or wikiPage.find("Bill_to") > -1 or wikiPage.find("bill_to") > -1 or wikiPage.find("Amendments") > -1 or wikiPage.find("Resolution") > -1 or wikiPage.find("Authorization") > -1 or wikiPage.find("To_") == 0 or wikiPage.find("Public_Law") > -1 or wikiPage.find("United_States_federal_budget") > -1 or wikiPage.find("_Ban_") > -1:
     isAct = True
     
     #adverb test
@@ -41,4 +41,7 @@ for line in intermediateFile:
        if wikiPage not in checkForDuplicates:
          outputFile.write(wikiPage + "\n")
          checkForDuplicates.append(wikiPage)
-outputFile.close()
+
+inputFile2 = open("manualWhitelist113.txt", "r")
+for line in inputFile2:
+  outputFile.write(line + "\n")
