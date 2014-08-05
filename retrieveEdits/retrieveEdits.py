@@ -7,6 +7,7 @@ from creds import *
 twitter = Twython(APP_KEY, APP_SECRET,
                   FINAL_OAUTH_TOKEN, FINAL_OAUTH_TOKEN_SECRET)
 
+#NUMBER OF SECONDS BETWEEN CHECKS
 frequency = 600.0
 
 st = time.time()
@@ -17,7 +18,7 @@ outputFile = open("whitelist113.txt", 'r')
 for line in outputFile:
   line = line.replace (" ", "_")
   line = line.replace("\n", "")
-  url = "http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=timestamp|user&format=json&titles=" + line
+  url = "http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=timestamp|user&format=json&titles=" + line + "&redirects"
   jsonurl = urllib2.urlopen(url)
   revision = json.loads(jsonurl.read())
   query = revision["query"]
