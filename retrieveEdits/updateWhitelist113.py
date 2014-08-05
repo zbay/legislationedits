@@ -16,14 +16,17 @@ intermediateFile.close()
 
 intermediateFile = open('intermediateList113.txt', 'r')
 
+checkForDuplicates = []
+
 for line in intermediateFile:
    start = line.find("<td><a href=\"/wiki/")
    end = line.find(" title=")
    wiki = line[start:end-1]
    wikiPage = wiki[19:]
    isAct = False
-   
-   if wikiPage.find("Act_") > -1  or wikiPage.find("_act") > -1 or wikiPage.find("act_") > -1 or wikiPage.find("_Act") > -1 or wikiPage.find("bill") > -1 or wikiPage.find("Amendments") > -1 or wikiPage.find("Resolution") > -1 or wikiPage.find("Authorization") > -1 or wikiPage.find("To_") == 0 or wikiPage.find("United_States_federal_budget") > -1 :
+
+    #how to filter out the good Wikipedia links from the bad
+   if wikiPage.find("Act_") > -1  or wikiPage.find("_act") > -1 or wikiPage.find("act_") > -1 or wikiPage.find("_Act") > -1 or wikiPage.find("bill") > -1 or wikiPage.find("Bill_to") > -1 or wikiPage.find("bill_to") > -1 or wikiPage.find("Amendments") > -1 or wikiPage.find("Resolution") > -1 or wikiPage.find("Authorization") > -1 or wikiPage.find("To_") == 0 or wikiPage.find("Public_Law") > -1 or wikiPage.find("United_States_federal_budget") > -1 :
     isAct = True
     
     #adverb test
@@ -35,5 +38,7 @@ for line in intermediateFile:
         isAct = True
   
    if isAct:
-       outputFile.write(wikiPage + "\n")
+       if wikiPage not in checkForDuplicates:
+         outputFile.write(wikiPage + "\n")
+         checkForDuplicates.append(wikiPage)
 outputFile.close()
