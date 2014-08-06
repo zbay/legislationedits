@@ -24,24 +24,32 @@ for line in intermediateFile:
    wiki = line[start:end-1]
    wikiPage = wiki[19:]
    isAct = False
-
+   if start == -1:
+      start = line.find("<td nowrap=\"nowrap\"><a href=\"/wiki/")
+      wikiPage = wiki[35:]
+      wiki = line[start:end-1]
+      
+   if start > -1:
     #how to filter out the good Wikipedia links from the bad
-   if wikiPage.find("Act_") > -1  or wikiPage.find("_act") > -1 or wikiPage.find("act_") > -1 or wikiPage.find("_Act") > -1 or wikiPage.find("bill") > -1 or wikiPage.find("Bill_to") > -1 or wikiPage.find("bill_to") > -1 or wikiPage.find("Amendments") > -1 or wikiPage.find("Resolution") > -1 or wikiPage.find("Authorization") > -1 or wikiPage.find("To_") == 0 or wikiPage.find("Public_Law") > -1 or wikiPage.find("United_States_federal_budget") > -1 or wikiPage.find("_Ban_") > -1:
-    isAct = True
+     if wikiPage.find("Act_") > -1  or wikiPage.find("_act") > -1 or wikiPage.find("act_") > -1 or wikiPage.find("_Act") > -1 or wikiPage.find("bill") > -1 or wikiPage.find("Bill_to") > -1 or wikiPage.find("bill_to") > -1 or wikiPage.find("Amendments") > -1 or wikiPage.find("Resolution") > -1 or wikiPage.find("Authorization") > -1 or wikiPage.find("authorization") >-1 or wikiPage.find("To_") == 0 or wikiPage.find("Public_Law") > -1 or wikiPage.find("United_States_federal_budget") > -1 or wikiPage.find("_Ban_") > -1:
+      if len(wikiPage) > 2:
+        isAct = True
     
     #adverb test
-   if not isAct:
-     firstSpace = wikiPage.find("_")
-     firstWord = wikiPage[0:firstSpace]
-     if len(firstWord) > 3:
-       if firstWord[len(firstWord)-3:] == "ing":
-        isAct = True
+     if not isAct:
+       firstSpace = wikiPage.find("_")
+       firstWord = wikiPage[0:firstSpace]
+       if len(firstWord) > 3:
+         if firstWord[len(firstWord)-3:] == "ing":
+          isAct = True
   
-   if isAct:
-       if wikiPage not in checkForDuplicates:
-         outputFile.write(wikiPage + "\n")
-         checkForDuplicates.append(wikiPage)
+     if isAct:
+         if wikiPage not in checkForDuplicates:
+           outputFile.write(wikiPage + "\n")
+           checkForDuplicates.append(wikiPage)
 
-inputFile2 = open("manualWhitelist113.txt", "r")
-for line in inputFile2:
-  outputFile.write(line + "\n")
+     inputFile2 = open("manualWhitelist113.txt", "r")
+     for line in inputFile2:
+       if wikiPage not in checkForDuplicates:
+           outputFile.write(line + "\n")
+           checkForDuplicates.append(wikiPage)
