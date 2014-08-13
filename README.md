@@ -24,4 +24,6 @@ Run retrieveEdits.py periodically to A. update the list of Wikipedia articles to
 
 I suck at web development. If somebody can explain the nuances of Heroku Scheduler to me, I could find a way to get this to work in the cloud.
 
+Update: As of 8/12/2014, this project exists at https://twitter.com/wikibills. Give it a follow!
+
 -zbay
