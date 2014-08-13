@@ -1,9 +1,7 @@
 import urllib2
 
 intermediateFile = open('intermediateList.txt', 'w')
-intermediateFile.truncate()
 outputFile = open("whitelist.txt", 'w')
-outputFile.truncate()
 
 inputFile = urllib2.urlopen('http://en.wikipedia.org/w/api.php?action=query&cmlimit=500&list=categorymembers&cmtitle=Category:United_States_proposed_federal_legislation')
 
