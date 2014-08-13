@@ -43,5 +43,5 @@ for line in outputFile:
   if revisionTime > startTime:
    output = "Article \"" + line + "\" edited by " + user
    line = line.replace (" ", "_")
-   edit = output[:116] + " http://en.wikipedia.org/w/index.php?title=" + line + "&diff=" + fromID + "&oldid=" + toID
+   edit = output[:116] + " http://en.wikipedia.org/w/index.php?title=" + line + "&diff=" + toID + "&oldid=" + fromID
    twitter.update_status(status=edit)
