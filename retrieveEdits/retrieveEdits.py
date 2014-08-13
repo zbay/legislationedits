@@ -18,16 +18,20 @@ outputFile = open("whitelist113.txt", 'r')
 for line in outputFile:
   line = line.replace (" ", "_")
   line = line.replace("\n", "")
-  url = "http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=timestamp|user&format=json&titles=" + line + "&redirects"
-  jsonurl = urllib2.urlopen(url)
-  revision = json.loads(jsonurl.read())
-  query = revision["query"]
-  pages = query["pages"]
-  page = next (iter (pages.values()))
-  revisions = page["revisions"]
-  step = revisions[0]
-  timestamp = step['timestamp']
-  user = step['user']
+  if len(line) > 1: #making sure an empty line isn't fed in to the url
+    url =  "http://en.wikipedia.org/w/api.php?action=query&rvdiffto=prev&prop=revisions&rvprop=timestamp|user&format=json&titles=" + line + "&redirects"
+    jsonurl = urllib2.urlopen(url)
+    revision = json.loads(jsonurl.read())
+    query = revision["query"]
+    pages = query["pages"]
+    page = next (iter (pages.values()))
+    revisions = page["revisions"]
+    step = revisions[0]
+    timestamp = step['timestamp']
+    user = step['user']
+    diff = step['diff']
+    fromID = str(diff['from'])
+    toID = str(diff['to'])
   
  # 2013-02-05T09:37:29Z
   
@@ -39,5 +43,5 @@ for line in outputFile:
   if revisionTime > startTime:
    output = "Article \"" + line + "\" edited by " + user
    line = line.replace (" ", "_")
-   edit = output[:116] + " en.wikipedia.org/wiki/" + line
+   edit = output[:116] + " http://en.wikipedia.org/w/index.php?title=" + line + "&diff=" + fromID + "&oldid=" + toID
    twitter.update_status(status=edit)
