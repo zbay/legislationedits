@@ -7,7 +7,7 @@ To use  this Twitter bot:
 
 * Set up a Python runtime environment.
 
-* In command line: git clone https://github.com/zbay/anon.git
+* In command line: git clone https://github.com/zbay/legislationedits.git
 
 * Log in and make a Twitter app called "legislation-edits" or something similar at https://apps.twitter.com/. Set the Consumer Key, Consumer Secret, Access token, and Access token secret. Add the credentials to creds.py. Give a Twitter account permission for your app to read+write to it.
 
