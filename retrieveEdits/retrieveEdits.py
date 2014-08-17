@@ -40,8 +40,14 @@ for line in outputFile:
   time2 = time.strftime("%H" + ":" + "%M" + " UTC", time1)
   line = line.replace ("_", " ")
   
-  if revisionTime > startTime:
-   output = "Article \"" + line + "\" edited by " + user
-   line = line.replace (" ", "_")
-   edit = output[:116] + " http://en.wikipedia.org/w/index.php?title=" + line + "&diff=" + toID + "&oldid=" + fromID
-   twitter.update_status(status=edit)
+if revisionTime > startTime:
+    if user[:8] == "143.231.": #House IP address. A regular expression version would be better but I'm lazy
+      output = "ANONYMOUS US HOUSE EDIT: Article /" + line + "\""
+    elif user[:8] == "156.33.": #Senate IP address. Regular expression ideal, again
+      output = "ANONYMOUS SENATE EDIT: Article /" + line + "\""
+    else:
+       output = "Article \"" + line + "\" edited by " + user
+     
+    line = line.replace (" ", "_")
+    edit = output[:116] + " http://en.wikipedia.org/w/index.php?title=" + line + "&diff=" + toID + "&oldid=" + fromID
+    twitter.update_status(status=edit)
