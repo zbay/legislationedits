@@ -1,9 +1,7 @@
 import urllib2
 
 intermediateFile = open('intermediateList113.txt', 'w')
-intermediateFile.truncate()
 outputFile = open("whitelist113.txt", 'w')
-outputFile.truncate()
 
 #CHANGE THIS LINE FOR FUTURE SESSIONS OF CONGRESS
 billPage = 'http://en.wikipedia.org/wiki/List_of_bills_in_the_113th_United_States_Congress'
