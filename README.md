@@ -11,8 +11,9 @@ To use  this Twitter bot:
 
 * Log in and make a Twitter app called "legislation-edits" or something similar at https://apps.twitter.com/. Set the Consumer Key, Consumer Secret, Access token, and Access token secret. Add the credentials to creds.py. Give a Twitter account permission for your app to read+write to it.
 
-* Edit a bill article on Wikipedia and see the bot work.
-Run retrieveEdits.py periodically to A. update the list of Wikipedia articles to check for and B. tweet the most recent edits.
+* Run updateWhitelist113.py to update the list of Wikipedia articles to monitor.
+
+* Edit a bill article on Wikipedia and see the bot work. Run retrieveEdits.py periodically to tweet the most recent edits.
 
 * retrieveEdits.py currently checks for edits in the last ten minutes (600 seconds). To change this interval, edit the variable 'frequency' in retrieveEdits.py to something other than 600.0.
 
