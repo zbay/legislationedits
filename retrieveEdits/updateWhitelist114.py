@@ -1,6 +1,6 @@
 import urllib2
 
-intermediateFile = open('intermediateList113.txt', 'w')
+intermediateFile = open('intermediateList114.txt', 'w')
 outputFile = open("whitelist113.txt", 'w')
 
 #CHANGE THIS LINE FOR FUTURE SESSIONS OF CONGRESS
@@ -12,7 +12,7 @@ intermediateFile.writelines(inputFile.read())
 
 intermediateFile.close()
 
-intermediateFile = open('intermediateList113.txt', 'r')
+intermediateFile = open('intermediateList114.txt', 'r')
 
 checkForDuplicates = []
 
@@ -46,7 +46,7 @@ for line in intermediateFile:
            outputFile.write(wikiPage + "\n")
            checkForDuplicates.append(wikiPage)
 
-     inputFile2 = open("manualWhitelist113.txt", "r")
+     inputFile2 = open("manualWhitelist114.txt", "r")
      for line in inputFile2:
        if wikiPage not in checkForDuplicates:
            outputFile.write(line + "\n")
