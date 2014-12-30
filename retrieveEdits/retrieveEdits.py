@@ -13,7 +13,7 @@ frequency = 600.0
 st = time.time()
 startTime = st - frequency
 
-outputFile = open("whitelist113.txt", 'r')
+outputFile = open("whitelist114.txt", 'r')
 
 for line in outputFile:
   line = line.replace (" ", "_")
