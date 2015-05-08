@@ -1,14 +1,17 @@
 import urllib2
 
 intermediateFile = open('intermediateList114.txt', 'w')
-outputFile = open("whitelist113.txt", 'w')
+outputFile = open("whitelist114.txt", 'w')
 
 #CHANGE THIS LINE FOR FUTURE SESSIONS OF CONGRESS
 billPage = 'http://en.wikipedia.org/wiki/List_of_bills_in_the_114th_United_States_Congress'
+actPage = 'http://en.wikipedia.org/wiki/List_of_Acts_of_the_114th_United_States_Congress'
 
 inputFile = urllib2.urlopen(billPage)
+inputFile2 = urllib2.urlopen(actPage)
 
 intermediateFile.writelines(inputFile.read())
+intermediateFile.writelines(inputFile2.read())
 
 intermediateFile.close()
 
