@@ -50,7 +50,7 @@ for line in intermediateFile:
                checkForDuplicates.append(wikiPage)
 
       inputFile3 = open("manualWhitelist114.txt", "r")
-      for line in inputFile2:
+      for line in inputFile3:
         if wikiPage not in checkForDuplicates:
             outputFile.write(line + "\n")
             checkForDuplicates.append(wikiPage)
