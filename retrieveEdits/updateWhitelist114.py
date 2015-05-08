@@ -46,11 +46,8 @@ for line in intermediateFile:
   
      if isAct:
          if wikiPage not in checkForDuplicates:
-           outputFile.write(wikiPage + "\n")
-           checkForDuplicates.append(wikiPage)
-
-     inputFile2 = open("manualWhitelist114.txt", "r")
-     for line in inputFile2:
-       if wikiPage not in checkForDuplicates:
-           outputFile.write(line + "\n")
-           checkForDuplicates.append(wikiPage)
+            lineReadable = wikiPage.replace ("_", " ")
+            lineReadable = lineReadable.replace("%E2%80%99", "'")
+            lineReadable = lineReadable.replace("%27", "'")
+            outputFile.write(wikiPage + "   TWEET VERSION = " + lineReadable "\n")
+            checkForDuplicates.append(wikiPage)
