@@ -2,5 +2,3 @@ APP_KEY = ''
 APP_SECRET = ''
 FINAL_OAUTH_TOKEN = ''
 FINAL_OAUTH_TOKEN_SECRET = ''
-
-#add gitignore
