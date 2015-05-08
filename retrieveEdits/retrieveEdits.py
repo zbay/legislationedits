@@ -4,7 +4,7 @@ import time
 from twython import Twython
 from creds import *
 
-def main():
+
                   twitter = Twython(APP_KEY, APP_SECRET, FINAL_OAUTH_TOKEN, FINAL_OAUTH_TOKEN_SECRET)
 
                   #NUMBER OF SECONDS BETWEEN CHECKS
